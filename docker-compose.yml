@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./app:/var/www/
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+    ports:
+      - "8085:80"
+    depends_on:
+      - app
+    container_name: uk_nginx
+
+  app:
+    build:
+      context: .
+      dockerfile: docker/app/Dockerfile
+    volumes:
+      - ./app:/var/www/
+    depends_on:
+      - db
+    container_name: uk_app
+
+  db:
+    image: mariadb
+    volumes:
+      - ./app/tmp/db:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: yookassa
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 8181:3306
+    container_name: uk_db
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: root
+    ports:
+      - "8091:80"
+    container_name: uk_myadmin

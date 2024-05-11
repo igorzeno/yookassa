@@ -1,0 +1,32 @@
+#button_search {
+    position: absolute;
+	opacity: 0;
+    width: 130px;
+    height: 44px;
+	background: rgb(255,156,1);
+	background: linear-gradient(77deg, rgba(255,156,1) 0%, rgba(253,179,62) 100%);
+    top: 48px;
+    left: -130px;
+    border-radius: 10px;
+	transition: 200ms linear;
+    cursor: pointer;
+}
+#button_dop {
+    position: relative;
+	padding: 10px 30px;
+	font-size: 15px;
+    font-weight: 700;
+	color: #ffffff;
+}
+#button_dop a {
+	font-size: 15px;
+    font-weight: 700;
+	color: #ffffff;
+}
+#button_search ::after {
+    content: '';
+    position: absolute;
+    right: -26px; top: 12px;
+    border: 10px solid transparent;
+    border-left: 16px solid rgb(253,179,62);
+   }
