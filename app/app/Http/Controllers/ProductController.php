@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
@@ -14,31 +15,24 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-        return ProductResource::collection($products);
-    }
-
-    public function countProduct(){
-        dd(88888888);
+        return ProductResource::collection(Product::all());
     }
 
     public function filterProduct(Request $request)
     {
-        $items = Product::query()
-            ->when($request->has('categories'), function ($query) use ($request) {
-                $query->where('category_id', $request->input('categories'));
-            })
-            ->when($request->has('colors'), function ($query) use ($request) {
-                $query->withWhereHas('tags', function ($query) use ($request) {
-                    $tags = $request->input('colors');
-                    $query->whereIn('taggables.tag_id', $tags);
-                });
-            })
-            ->get();
-
-        return ProductResource::collection($items);
+        return ProductResource::collection($this->filterCountAndProducts($request));
     }
 
+    public function countProduct(Request $request)
+    {
+        return response(['count' => $this->filterCountAndProducts($request)->count() ?? null]);
+    }
+
+    private function filterCountAndProducts(Request $request)
+    {
+        return Product::with('category', 'tags')
+            ->searchCategoryTags($request)->get();
+    }
 
     /**
      * Store a newly created resource in storage.

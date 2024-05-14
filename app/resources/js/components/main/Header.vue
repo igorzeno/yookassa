@@ -1,6 +1,6 @@
 <template>
     <header>
-        <div>AdminPanel</div>
+        <div>MEGA PRODUCTS</div>
         <ul class="header__nav">
             <li><a href="/">Home</a></li>
             <li><a href="/features">Features</a></li>

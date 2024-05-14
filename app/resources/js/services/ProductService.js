@@ -10,6 +10,7 @@ class ProductService {
     getProductFilter(params) {
         return this.api.get('/api/product/get-filter-products', params)
     }
+
     getCountProduct(params) {
         return this.api.get('/api/product/get-count-products', params)
     }

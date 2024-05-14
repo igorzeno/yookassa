@@ -5,10 +5,13 @@ namespace App\Models;
 use App\Models\Scopes\DraftScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
+use Illuminate\Support\Facades\Request;
 
 class Product extends Model
 {
     use HasFactory;
+
     protected $fillable = [];
 
     protected $casts = [
@@ -25,6 +28,11 @@ class Product extends Model
     {
         parent::boot();
         static::addGlobalScope(new DraftScope());
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 
     public function tags()
@@ -46,4 +54,17 @@ class Product extends Model
     {
         return $this->belongsTo(Discount::class);
     }
+
+    protected function scopeSearchCategoryTags($query, $request)
+    {
+        return $query->when($request->input('category'),
+                fn($query) => $query->where('category_id', $request->input('category'))
+            )
+            ->when($request->input('tags'),
+                fn($query) => $query->whereHas('tags',
+                    fn($query) => $query->whereIn('tag_id', $request->input('tags'))
+                )
+            );
+    }
+
 }

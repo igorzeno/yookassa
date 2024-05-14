@@ -22,10 +22,18 @@ services:
       - db
     container_name: uk_app
 
+  #npm:
+   # image: node:14
+   # working_dir: /var/www/
+   # entrypoint: ["npm"]
+   # volumes:
+   #   - "./app:/var/www/"
+   # container_name: uk_npm
+
   db:
     image: mariadb
     volumes:
-      - ./app/tmp/db:/var/lib/mysql
+      - ./tmp/db:/var/lib/mysql
     environment:
       MYSQL_DATABASE: yookassa
       MYSQL_ROOT_PASSWORD: root

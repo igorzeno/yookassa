@@ -10,15 +10,14 @@
                 <div id="banner">
                     <img src="/img/banner.jpg" class="banner-img" alt="...">
                 </div>
-                <h3>Плитка</h3>
+                <h3>Table lamps</h3>
                 <div id="products">
                     <div class="card" v-for="product in products">
                         <a href="product_detail.html">
-<!--                                                        <img :src="(`/storage/images/${product.image}`)" class="card-img-top" alt="...">-->
+                                                        <img :src="(`/storage/images/${product.image}`)" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <p class="cat-text">{{ product.id }}</p>
-<!--                                <p class="cat-text">{{ product.price }}</p>-->
-                                <p class="cat-text">{{ product.name }}</p>
+                                <p class="cat-text">{{ product.price }} Euro</p>
+                                <p class="cat-text">SKU: {{ product.name }}</p>
                             </div>
                         </a>
                     </div>
@@ -105,18 +104,7 @@ export default {
         await this.fetchProductFilter(this.filterArr);
     },
     methods: {
-        // async fetchData() {
-        //  //   alert(this.filterArr);
-        //     let response = await ProductService.getIndex();
-        //
-        //     if (response) {
-        //         this.products = response.data;
-        //     } else {
-        //         alert('Произошла ошибка!')
-        //     }
-        // },
         async fetchProductFilter(filterArr) {
-          //  alert(filterArr.colors);
             let response = await ProductService.getProductFilter(filterArr);
 
             if (response) {
@@ -147,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             if (top.style.opacity == 1) {
                 const time = setTimeout(() => {
                     top.style.opacity = 0
-                }, 3000);
+                }, 5000);
               //  console.log(time);
             }
         });

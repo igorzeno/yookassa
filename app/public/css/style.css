@@ -17,7 +17,7 @@
 body {
     margin: 0;
     background-color: #ffffff;
-    font-family: Graphik,Helvetica,Arial,sans-serif;
+    font-family: TT Travels;
     font-size: 13px;
     color: #333;
     line-height: 1.4;
@@ -284,7 +284,8 @@ li {
 .card-img-top, .banner-img {
 	width: 100%;
 	display: block;
-	object-fit: cover;
+	-o-object-fit: cover;
+	   object-fit: cover;
 	height: 226px;
     border-radius: 4px;
 }
@@ -346,7 +347,8 @@ hr {
 .product_img {
 	width: 100%;
     display: block;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
 }
 .product_hr {
 	color: #333333;
@@ -356,7 +358,8 @@ hr {
 .product_ava {
 	width: 100%;
     display: block;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
 	padding: 0 20px 20px 0;
 }
 .product_title {
@@ -382,3 +385,4 @@ hr {
 .modal-footer {
     border-top: none;
 }
+

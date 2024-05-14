@@ -16,15 +16,15 @@
                 <div class="card-filter">
                     <p class="cat-title">Цвет:</p>
                 </div>
-                <div class="form-check" v-for="color in colors" @change="countProduct">
-                    <input v-model="selectedColors"  :value="color.id"
+                <div class="form-check" v-for="tag in tags" @change="countProduct">
+                    <input v-model="selectedTags"  :value="tag.id"
                            class="form-check-input" type="checkbox">
-                    <label>{{ color.title }}</label>
+                    <label>{{ tag.title }}</label>
                 </div>
             </div>
             <div id="button_search"
                  v-on:click="getFilterProducts">
-                <div id="button_dop">Показать {{this.countP}}</div>
+                <div id="button_dop">Показать <span v-if="this.countP"> : {{ this.countP }}</span></div>
             </div>
 
         </div>
@@ -48,36 +48,37 @@ export default {
                 {id: 3, title: 'Классика', checked: false}
             ],
             selectedCategories: [],
-            colors: [
+            tags: [
                 {id: 1, title: 'Новинки', checked: false},
                 {id: 2, title: 'Популярные', checked: false},
                 {id: 3, title: 'Скидки', checked: false},
                 {id: 4, title: 'Распродажа', checked: false}
             ],
-            selectedColors: [],
+            selectedTags: [],
             countP: 0,
         };
     },
         methods: {
             async countProduct() {
                 var countProduct = {
-                    categories: this.selectedCategories,
-                    colors: this.selectedColors
+                    category: this.selectedCategories,
+                    tags: this.selectedTags
                 };
-                console.log(countProduct);
+              //  console.log(countProduct);
                 let response = await ProductService.getCountProduct(countProduct);
 
                 if (response) {
-                    this.countP = 0;
+                    this.countP = response.count;
                 } else {
                     alert('Произошла ошибка!')
                 }
             },
             getFilterProducts() {
                 var obFilterProduct = {
-                    categories: this.selectedCategories,
-                    colors: this.selectedColors
+                    category: this.selectedCategories,
+                    tags: this.selectedTags
                 };
+               // console.log(obFilterProduct);
                 this.$emit('filterProduct', obFilterProduct);
             }
         }
