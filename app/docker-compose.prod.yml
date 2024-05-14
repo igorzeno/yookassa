@@ -50,3 +50,9 @@ services:
     ports:
       - "8000:80"
     container_name: yml_myadmin
+
+networks:
+  default:
+    driver: overlay
+    driver_opts:
+      com.docker.network.driver.mtu: 1450
