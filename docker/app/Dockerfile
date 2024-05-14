@@ -1,11 +1,9 @@
 FROM php:8.1-fpm
 
-RUN apt-get update
-RUN apt install -y apt-utils
+RUN apt-get -y update && apt-get upgrade
 
-# Install dependencies
-RUN apt-get install -qq -y \
-      curl \
+RUN apt-get update \
+    && apt-get -y install curl \
       cron \
       apt-utils \
       libpq-dev \
