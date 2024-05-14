@@ -11,6 +11,8 @@ services:
     depends_on:
       - app
     container_name: yml_nginx
+    networks:
+      - isolated
 
   app:
     build:
@@ -21,6 +23,8 @@ services:
     depends_on:
       - db
     container_name: yml_app
+    networks:
+      - isolated
 
   #npm:
    # image: node:14
@@ -40,6 +44,8 @@ services:
     ports:
       - 3306:3306
     container_name: yml_db
+    networks:
+      - isolated
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
@@ -50,9 +56,12 @@ services:
     ports:
       - "8000:80"
     container_name: yml_myadmin
+    networks:
+      - isolated
 
 networks:
+  isolated:
+    internal: true
   default:
-    driver: overlay
     driver_opts:
       com.docker.network.driver.mtu: 1450
