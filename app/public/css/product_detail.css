@@ -62,17 +62,22 @@ aside {
     }
 }
 
-@media (max-width: 768px) { 
+@media (max-width: 768px) {
 
 }
 
-@media (max-width: 576px) { 
+@media (max-width: 576px) {
 	aside {
-   		min-width: 0; 
+   		min-width: 0;
    	}
 	#aside_product {
-		min-width: 0; 
+		min-width: 0;
 	}
+}
+
+hr {
+    border: none;
+    opacity: 1;
 }
 
 

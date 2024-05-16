@@ -11,5 +11,5 @@
 {{--    }--}}
 {{--    @endphp--}}
     {{--    @include('partials.header')--}}
-    <product-index ref="foo"></product-index>
+    <product-index></product-index>
 @endsection

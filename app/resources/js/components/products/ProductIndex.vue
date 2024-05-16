@@ -13,10 +13,10 @@
                 <h3>Table lamps</h3>
                 <div id="products">
                     <div class="card" v-for="product in products">
-                        <a href="product_detail.html">
-                                                        <img :src="(`/storage/images/${product.image}`)" class="card-img-top" alt="...">
+                        <a :href="`/products/${product.id}` ">
+                            <img :src="(`/storage/images/${product.image}`)" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <p class="cat-text">{{ product.price }} Euro</p>
+                                <p class="cat-text">{{ product.price }} Euro <span class="cat-text" style="background-color: aliceblue">{{ product.category.name }}</span></p>
                                 <p class="cat-text">SKU: {{ product.name }}</p>
                             </div>
                         </a>

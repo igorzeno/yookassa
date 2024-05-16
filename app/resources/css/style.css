@@ -18,9 +18,9 @@ body {
     margin: 0;
     background-color: #ffffff;
     font-family: TT Travels;
-    font-size: 13px;
-    color: #333;
-    line-height: 1.4;
+    font-size: 12px;
+    color: #000000;
+    font-weight: 500;
 }
 a {
     color: #333;
@@ -125,9 +125,10 @@ main {
 #footer {
     display: flex;
     align-items: center;
-    padding: 20px 20px 0 20px;
+    padding: 120px 20px 0 20px;
 }
 #footer_right, .a, .b, .c {
+    font-size: 11px;
     display: flex;
     flex-direction: column;
     margin-left: auto;
@@ -319,10 +320,12 @@ li {
 .cat-text {
 	text-align:left;
     margin: 6px 0;
+    font-weight: 700;
 }
 hr {
-    height: 1px;
-    margin: 12px 0;
+    /*height: 1px;*/
+    /*margin: 1px 0;*/
+    /*margin: 12px 0;*/
 }
 #banner .banner-img {
 	height: 240px;
@@ -347,11 +350,11 @@ hr {
 	width: 100%;
     display: block;
     object-fit: cover;
+    width: 100%;
+    height: 100%;
 }
 .product_hr {
 	color: #333333;
-	margin: 4px 0;
-
 }
 .product_ava {
 	width: 100%;
@@ -368,8 +371,14 @@ hr {
 .product_text {
 	padding: 4px 0 12px 0;
 }
+.product_text.reviews {
+    background-color: aliceblue;
+}
+.product_text.discount {
+	padding: 6px 0 10px 0;
+    background-color: beige;
+}
 #aside_product {
-	padding: 20px 0;
     border-radius: 4px 4px 4px 4px;
     min-width: 260px;
 }

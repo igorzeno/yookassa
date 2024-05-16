@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -47,7 +45,14 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view('product.detail', [
+            'product' => $product->id,
+        ]);
+    }
+
+    public function getProductId(Request $request)
+    {
+        return response(['data' => Product::with('discount')->find($request->input('product'))]);
     }
 
     /**

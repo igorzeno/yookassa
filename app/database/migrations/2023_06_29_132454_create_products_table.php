@@ -19,7 +19,7 @@ return new class extends Migration
 
             $table->string('name', 255);
             $table->string('desc')->nullable();
-            $table->string('SKU', 127)->nullable();;
+            $table->string('sku', 127)->nullable();;
             $table->string('brand', 127)->nullable();
             $table->decimal('price', 10,2)->nullable();
             $table->string('image',255)->nullable();

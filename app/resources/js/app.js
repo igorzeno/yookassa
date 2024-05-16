@@ -5,7 +5,8 @@ import moment from 'moment';
 
 Vue.component('index', require('./components/Index').default);
 Vue.component('product-index', require('./components/products/ProductIndex').default);
-
+Vue.component('product-detail', require('./components/products/ProductDetail').default);
+Vue.component('product-card', require('./components/products/ProductCard').default);
 
 require('./bootstrap');
 

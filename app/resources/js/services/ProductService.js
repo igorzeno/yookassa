@@ -7,6 +7,10 @@ class ProductService {
         return this.api.get('/api/product/get-index', params)
     }
 
+    getProduct(params) {
+        return this.api.get('/api/product/get-product-id', params)
+    }
+
     getProductFilter(params) {
         return this.api.get('/api/product/get-filter-products', params)
     }

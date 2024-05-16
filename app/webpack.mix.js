@@ -15,5 +15,7 @@ mix.js('resources/js/app.js', 'public/js')
     .vue()
     .postCss('resources/css/app.css', 'public/css')
     .postCss('resources/css/product.css', 'public/css')
+    .postCss('resources/css/product_detail.css', 'public/css')
+    .postCss('resources/css/card.css', 'public/css')
     .postCss('resources/css/style.css', 'public/css');
 

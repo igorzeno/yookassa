@@ -1,12 +1,12 @@
 #button_search {
     position: absolute;
 	opacity: 0;
-    width: 140px;
+    width: 160px;
     height: 42px;
 	background: rgb(255,156,1);
 	background: linear-gradient(77deg, rgba(255,156,1) 0%, rgba(253,179,62) 100%);
     top: 48px;
-    left: -130px;
+    left: -150px;
     border-radius: 6px;
 	transition: 200ms linear;
     cursor: pointer;

@@ -14,7 +14,7 @@
 
             <div class="category-filter">
                 <div class="card-filter">
-                    <p class="cat-title">Цвет:</p>
+                    <p class="cat-title">Выбрать:</p>
                 </div>
                 <div class="form-check" v-for="tag in tags" @change="countProduct">
                     <input v-model="selectedTags"  :value="tag.id"
@@ -39,7 +39,7 @@ import ProductService from "../../services/ProductService";
 
 export default {
     name: "RightFilter",
-    // productsCount: ["productsCount"],
+
     data() {
         return {
             categories: [
@@ -51,8 +51,7 @@ export default {
             tags: [
                 {id: 1, title: 'Новинки', checked: false},
                 {id: 2, title: 'Популярные', checked: false},
-                {id: 3, title: 'Скидки', checked: false},
-                {id: 4, title: 'Распродажа', checked: false}
+                {id: 3, title: 'Распродажа', checked: false}
             ],
             selectedTags: [],
             countP: 0,

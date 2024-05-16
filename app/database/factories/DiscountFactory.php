@@ -26,7 +26,7 @@ class DiscountFactory extends Factory
         return [
             'name' => Arr::random($names),
             'desc' => fake()->unique()->realText(),
-            'discount_percent' => rand(1,20),
+            'discount_percent' => rand(10,50),
         ];
     }
 }
