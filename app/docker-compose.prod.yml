@@ -22,13 +22,13 @@ services:
       - db
     container_name: yml_app
 
-    #npm:
-    # image: node:14
-    # working_dir: /var/www/
-    # entrypoint: ["npm"]
-    # volumes:
-    #   - "../app:/var/www/"
-    # container_name: uk_npm
+  npm:
+     image: node:14
+     working_dir: /var/www/
+     entrypoint: ["npm"]
+     volumes:
+       - "../app:/var/www/"
+     container_name: uk_npm
 
   db:
     image: mariadb
@@ -41,15 +41,15 @@ services:
       - 3306:3306
     container_name: yml_db
 
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin:latest
-    environment:
-      PMA_HOST: db
-      PMA_USER: root
-      PMA_PASSWORD: root
-    ports:
-      - "8080:80"
-    container_name: yml_myadmin
+  #phpmyadmin:
+   # image: phpmyadmin/phpmyadmin:latest
+   # environment:
+    #  PMA_HOST: db
+     # PMA_USER: root
+      #PMA_PASSWORD: root
+    #ports:
+     # - "8080:80"
+    #container_name: yml_myadmin
 
 networks:
   network1:
